@@ -40,7 +40,7 @@ pipeline{
        }
         stage('Deploy To Tomcat'){
         sshagent(['app-server']) {
-            sh 'scp -o StrictHostKeyChecking=no target/*.war ec2-user@ec2-52-70-39-48.compute-1.amazonaws.com:/opt/apache-tomcat-8.5.38/webapps/'
+            sh 'scp -o StrictHostKeyChecking=no target/*.war ec2-user@ec2-54-165-137-181.compute-1.amazonaws.com:/opt/apache-tomcat-8.5.38/content'
         }
     }
        stage('Mail'){
