@@ -14,6 +14,14 @@ pipeline{
                 sh 'mvn clean package'
             }
        }
+
+       stage('Tomcat deploy'){
+            steps{
+                sshagent(['admin']) {
+                  sh "scp -P22 " 
+                }
+            }
+       }
        
        stage('SonarQube analysis') {
         steps{
